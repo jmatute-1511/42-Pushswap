@@ -6,7 +6,7 @@
 /*   By: jmatute- <jmatute-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/16 17:03:57 by jmatute-          #+#    #+#             */
-/*   Updated: 2021/10/16 17:04:00 by jmatute-         ###   ########.fr       */
+/*   Updated: 2021/10/31 15:26:27 by jmatute-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,12 +58,12 @@ void	free_matrix(char **matrix);
 
 typedef struct s_list
 {
-	void			*content;
+	int			content;
 	struct s_list	*next;
 }			t_list;
 
 t_list	*ft_lstlast(t_list *lst);
-t_list	*ft_lstnew(void *content);
+t_list	*ft_lstnew(int content);
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 int		ft_lstsize(t_list *lst);
 void	ft_lstadd_back(t_list **lst, t_list *new);

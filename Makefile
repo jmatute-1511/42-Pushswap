@@ -6,11 +6,11 @@
 #    By: jmatute- <jmatute-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/22 12:21:57 by jmatute-          #+#    #+#              #
-#    Updated: 2021/10/16 18:07:29 by jmatute-         ###   ########.fr        #
+#    Updated: 2021/10/31 17:41:44 by jmatute-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRCS	= errors_args.c
+SRCS	=  full_stack.c #errors_args.c
 
 LIBFT_DIR	= libft/
 
@@ -21,15 +21,15 @@ NAME	= pushswap
 CC		= gcc
 RM		= rm -f
 
-CFLAGS	= -Wall -Wextra -Werror #-fsanitize=address
+CFLAGS	= -Wall -Wextra -Werror -fsanitize=address
 
-.c.o:
-			${CC}  -c $< -o ${<:.c=.o}
+.c.o: ${SRCS}
+			${CC} -g3 -c $< -o ${<:.c=.o}
 
-${NAME}:	${SRCS} pushswap.h Makefile
+${NAME}:	${OBJS} pushswap.h Makefile
 			@make -sC ${LIBFT_DIR}
 			@cp ./libft/libft.a .
-			${CC} ${SRCS} libft.a -o ${NAME}
+			${CC} -g3 libft.a ${OBJS} -o ${NAME}
 
 all:		${NAME}
 

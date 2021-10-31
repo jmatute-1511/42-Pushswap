@@ -1,20 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
+/*   ft_stack_fuctions.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jmatute- <jmatute-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/29 17:03:37 by jmatute-          #+#    #+#             */
-/*   Updated: 2021/10/31 16:34:47 by jmatute-         ###   ########.fr       */
+/*   Created: 2021/10/30 21:12:32 by jmatute-          #+#    #+#             */
+/*   Updated: 2021/10/30 21:14:02 by jmatute-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "pushswap.h"
 
-void	ft_lstadd_back(t_list **lst, t_list *new)
+void	ft_lstadd_back(t_stack **lst, t_stack *new)
 {
-	t_list	*aux;
+	t_stack	*aux;
 
 	if (lst)
 	{
@@ -28,4 +28,16 @@ void	ft_lstadd_back(t_list **lst, t_list *new)
 			aux = aux->next;
 		aux->next = new;
 	}
+}
+
+t_stack	*ft_lstnew(void *content)
+{
+	t_stack	*new;
+
+	new = malloc(sizeof(t_stack));
+	if (!new)
+		return (NULL);
+	new->content = content;
+	new->next = NULL;
+	return (new);
 }

@@ -6,13 +6,13 @@
 /*   By: jmatute- <jmatute-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/29 15:17:58 by jmatute-          #+#    #+#             */
-/*   Updated: 2021/06/02 13:13:49 by jmatute-         ###   ########.fr       */
+/*   Updated: 2021/10/31 15:59:24 by jmatute-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_list	*ft_lstnew(void *content)
+t_list	*ft_lstnew(int content)
 {
 	t_list	*new;
 
