@@ -6,7 +6,7 @@
 /*   By: jmatute- <jmatute-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/30 19:31:33 by jmatute-          #+#    #+#             */
-/*   Updated: 2021/11/01 04:42:41 by jmatute-         ###   ########.fr       */
+/*   Updated: 2021/11/01 06:34:19 by jmatute-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,24 +67,4 @@ t_list *caption_stack(int argc, char **argv,t_list *stack)
 	if (argc > 2)
 		free_matrix(matrix);
 	return (stack);
-}
-
-int main(int argc, char **argv)
-{
-	t_list *stack;
-	int a;
-
-	if (check_not_error(argc, argv) == 1)
-	{
-		ft_putstr_fd("ERROR ARGS", 2);
-		exit (1);
-	}
-	stack = caption_stack(argc, argv, stack);
-	while (stack->next)
-	{
-		printf("%d ",stack->content);
-		stack = stack->next;
-	}
-	printf("%d ",stack->content);
-	return (0);
 }

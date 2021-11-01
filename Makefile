@@ -6,11 +6,11 @@
 #    By: jmatute- <jmatute-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/22 12:21:57 by jmatute-          #+#    #+#              #
-#    Updated: 2021/11/01 04:30:44 by jmatute-         ###   ########.fr        #
+#    Updated: 2021/11/01 18:19:49 by jmatute-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRCS	=  fill_stack.c errors_args.c check_not_repite.c
+SRCS	=  fill_stack.c errors_args.c check_not_repite.c pushswap.c rules_ss.c rules_rr.c rules_rrr.c
 
 LIBFT_DIR	= libft/
 
