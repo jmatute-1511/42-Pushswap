@@ -19,7 +19,7 @@ int	check_is_not_empty(char *string)
 	i = 0;
 	while (string[i])
 	{
-		if (ft_isdigit(string[i] != 0))
+		if (ft_isdigit(string[i]) != 0)
 			return (1);
 		i++;
 	}
@@ -33,27 +33,21 @@ int	check_not_error(int argc, char **argv)
 
 	i = 0;
 	m = 1;
-	if (argc == 2 && check_is_not_empty(argv[m]) == 0)
-	{
-		write(2,"ERROR 1",8);
+	if (check_not_repite(argc,argv) == 1)
 		return (1);
-	}
+	if (argc == 2 && check_is_not_empty(argv[m]) == 0)
+		return (1);
 	while (m < argc)
 	{
 		while (ft_isdigit(argv[m][i]) != 0 || argv[m][i] == ' ' || argv[m][i] == '-')
 		{
-			if ( argv[m][i] == '-' && argv[m][i - 1] != ' ')
-			{
-				write(2,"ERROR 2",8);
+			if (argv[m][i] == '-' && argv[m][i - 1] != ' ' && i != 0)
 				return (1);
-			}
 			i++;
 		}
-		if (ft_isdigit(argv[m][i] == 0))
-		{
-			write(2,"ERROR 3",8);
+		if (ft_isdigit(argv[m][i]) == 0 && argv[m][i] != '\0')
 			return (1);
-		}
+		i = 0;
 		m++;
 	}
 	return (0);

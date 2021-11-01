@@ -17,7 +17,9 @@
 # include <unistd.h>
 # include "./libft/libft.h"
 
-int	check_is_not_empty(char *string);
+int		check_is_not_empty(char *string);
+void	*ft_calloc(size_t count, size_t size);
+int		check_not_repite(int argc,char **argv);
 int		check_not_error(int argc, char **argv);
 void	ft_lstadd_back(t_list **lst, t_list *new);
 void	free_matrix(char **matrix);
