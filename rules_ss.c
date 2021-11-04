@@ -6,36 +6,30 @@
 /*   By: jmatute- <jmatute-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/01 06:00:42 by jmatute-          #+#    #+#             */
-/*   Updated: 2021/11/01 17:55:23 by jmatute-         ###   ########.fr       */
+/*   Updated: 2021/11/04 17:35:30 by jmatute-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pushswap.h"
 
-void rule_sa(t_list *stack_a)
+void rule_swap_stack(t_list **stack, char *option)
 {
 	t_list *first;
 	t_list *second;
 
-	*first = *stack_a;
-	*second = *stack_a->next;
+	first = (*stack);
+	second = (*stack)->next;
 	first->next = second->next;
 	second->next = first;
-	stack_a = second;
+	(*stack) = second;
+	if (ft_strcmp(option,"swap_a") == 0)
+		write(1,"sa\n",4);
+	else if (ft_strcmp(option,"swap_b") == 0)
+		write(1,"sb\n",4);
 }
-void rule_sb(t_list *stack_b)
+void	rules_swap(t_list **stack_a, t_list **stack_b)
 {
-	t_list *first;
-	t_list *second;
-
-	*first = *stack_b;
-	*second = *stack_b->next;
-	first->next = second->next;
-	second->next = first;
-	stack_b = second;
-}
-void	rule_ss(t_list *stack_a, t_list *stack_b)
-{
-	rule_sb(stack_b);
-	rule_sa(stack_a);
+	rule_swap_stack(stack_a,"NON");
+	rule_swap_stack(stack_b,"NON");
+	write(1,"ss",3);
 }

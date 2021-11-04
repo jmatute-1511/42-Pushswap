@@ -6,7 +6,7 @@
 /*   By: jmatute- <jmatute-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/01 06:34:06 by jmatute-          #+#    #+#             */
-/*   Updated: 2021/11/01 18:19:56 by jmatute-         ###   ########.fr       */
+/*   Updated: 2021/11/04 17:54:39 by jmatute-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int main(int argc, char **argv)
 		exit (1);
 	}
 	global.stack_a = caption_stack(argc, argv, global.stack_a);
-	rule_rra(global.stack_a);
+	rule_reverse_stack(&global.stack_a,"reverse_a");
 	while (global.stack_a->next)
 	{
 		printf("%d ",global.stack_a->content);

@@ -35,13 +35,11 @@ char	**ft_split(char const *s, char c);
 t_list *caption_stack(int argc, char **argv,t_list *stack);
 
 //RULES SS
-void rule_sa(t_list *stack_a);
-void rule_sb(t_list *stack_b);
-void	rule_ss(t_list *stack_a, t_list *stack_b);
-//RULES RR
-void	rule_ra(t_list *stack_a);
-void	rule_rb(t_list *stack_b);
-void	rule_rr(t_list *stack_a, t_list *stack_b);
+void	rule_swap_stack(t_list **stack_a, char *option);
+void	rule_swap_all(t_list **stack_a, t_list **stack_b);
+// RULES RR
+void	rule_rotate_stack(t_list **stack_a, char *option);
+void	rule_rotate_all(t_list **stack_a, t_list **stack_b);
 //RULES RRR
-void	rule_rra(t_list *stack_a);
+void	rule_reverse_stack(t_list **stack, char *option);
 #endif

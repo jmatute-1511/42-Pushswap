@@ -6,41 +6,32 @@
 /*   By: jmatute- <jmatute-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/01 13:59:59 by jmatute-          #+#    #+#             */
-/*   Updated: 2021/11/01 18:05:54 by jmatute-         ###   ########.fr       */
+/*   Updated: 2021/11/04 17:46:45 by jmatute-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pushswap.h"
 
-void	rule_ra(t_list *stack_a)
+void	rule_rotate_stack(t_list **stack,char *option)
 {
 	t_list *head;
 	t_list *ultimate;
 
-	*head = *stack_a;
-	*ultimate = *stack_a;
+	head = (*stack);
+	ultimate = (*stack);
 	while (ultimate->next)
 		ultimate = ultimate->next;
-	*stack_a = *head->next;
+	(*stack) = head->next;
 	ultimate->next = head;
 	head->next = NULL;
+	if (ft_strcmp(option, "rotate_a") == 0)
+		write(1, "ra\n", 4);
+	else if(ft_strcmp(option, "rotate_b") == 0)
+		write(1, "rb\n", 4);
 }
-void	rule_rb(t_list *stack_b)
+void	rule_rotate_all(t_list **stack_a, t_list **stack_b)
 {
-	t_list *head;
-	t_list *ultimate;
-
-	*head = *stack_b;
-	*ultimate = *stack_b;
-	while (ultimate->next)
-		ultimate = ultimate->next;
-	*stack_b = *head->next;
-	ultimate->next = head;
-	head->next = NULL;
-}
-
-void	rule_rr(t_list *stack_a, t_list *stack_b)
-{
-	rule_ra(stack_a);
-	rule_rb(stack_b);
+	rule_rotate_stack(stack_a, "NON");
+	rule_rotate_stack(stack_b, "NON");
+	write(1,"rr\n",4);
 }
