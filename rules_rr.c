@@ -6,7 +6,7 @@
 /*   By: jmatute- <jmatute-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/01 13:59:59 by jmatute-          #+#    #+#             */
-/*   Updated: 2021/11/04 17:46:45 by jmatute-         ###   ########.fr       */
+/*   Updated: 2021/11/21 15:29:33 by jmatute-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,4 +34,12 @@ void	rule_rotate_all(t_list **stack_a, t_list **stack_b)
 	rule_rotate_stack(stack_a, "NON");
 	rule_rotate_stack(stack_b, "NON");
 	write(1,"rr\n",4);
+}
+void rule_nrotate(t_list **stack, char *option, int iterator)
+{
+	while (iterator > 0)
+	{
+		rule_rotate_stack(stack,option);
+		iterator--;
+	}
 }

@@ -6,7 +6,7 @@
 /*   By: jmatute- <jmatute-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/01 02:49:24 by jmatute-          #+#    #+#             */
-/*   Updated: 2021/11/01 05:42:57 by jmatute-         ###   ########.fr       */
+/*   Updated: 2021/11/21 00:22:42 by jmatute-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,20 +77,29 @@ int check_not_repite(int argc,char **argv)
 	char *string;
 	int v_return;
 	int count;
+	int second;
 
 	count = 0;
+	second = 1;
 	v_return = 0;
 	len_allocate = size_string(argc,argv);
 	string = (char *)malloc(sizeof(char) * (len_allocate * 2 - 1));
 	fill_string(argc,argv,string);
-	while (string[count] != '\0')
+	while (string[count] != '\0' && len_allocate > 1)
 	{
-		if (check_equal(&string[count],&string[count + 1]) == 1 )
+		second = 1;
+		while(string[count + second])
+		{
+			if (ft_isdigit(string[count + second]) == 0)
+				break;
+			second++;
+		}
+		if (check_equal(&string[count],&string[count + second]) == 1 )
 		{
 			v_return = 1;
 			break ;
 		}
-		count++;
+		count = count + second;
 	}
 	free(string);
 	string = NULL;

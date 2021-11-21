@@ -36,6 +36,8 @@ void move_size_three(t_list **stack_a, t_list **end_a)
             rule_reverse_stack(stack_a,"reverse_a");
         else if((*stack_a)->content > (*stack_a)->next->content)
             rule_swap_stack(stack_a,"swap_a");
+        else if ((*stack_a)->content < (*stack_a)->next->content)
+            rule_swap_stack(stack_a,"swap_a");
         count++;
     }
 }
@@ -72,9 +74,9 @@ void moves_when_size_five(t_list **stack_a,t_list **stack_b, t_list **end_a)
         }
         else if ( size == 4)
             rules_push_to(stack_a, stack_b, "push_to_b");
-        if (check_order(stack_a) == 0) 
+        if (check_order(stack_a) == 0)
             rule_swap_stack(stack_b, "swap_b");
-        else 
+        else
             move_size_three(stack_a, end_a);
         (*end_a) = end_stack(stack_a);
         aux = (*stack_a)->next->content;
