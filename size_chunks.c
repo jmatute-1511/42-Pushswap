@@ -6,7 +6,7 @@
 /*   By: jmatute- <jmatute-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/18 15:51:16 by marvin            #+#    #+#             */
-/*   Updated: 2021/11/21 01:25:01 by jmatute-         ###   ########.fr       */
+/*   Updated: 2021/11/25 19:48:00 by jmatute-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int bigger_number(t_list **stack)
     int big_n;
     t_list *aux;
 
-    big_n = 0;
+    big_n = (*stack)->content;
     aux = (*stack);
     while (aux->next || aux->next == NULL)
     {

@@ -38,7 +38,7 @@ char	**ft_split(char const *s, char c);
 int	ft_strcmp(const char *s1, const char *s2);
 // CALCULATE MOVES
 int		hold_first(t_list **stack,t_global *global,int topchunk);
-int		hold_second(t_list **stack, int top_chunk, int first_hold);
+int		hold_second(t_list **stack, int top_chunk);
 int 	bigger_number(t_list **stack);
 int 	small_number(t_list **stack);
 int		distance(int small_n, int big_n);
@@ -49,7 +49,7 @@ void	make_moves(t_list **stack_a, char *option, int hold);
 void	move_chunck(t_list **stack_a, t_global *global, int top_chunk);
 int		moves_to_dump(t_list **stack, int big_n);
 void	dump_on_stack(t_list **stack_a, t_list **stack_b);
-void    moves_depending_on_size(t_list **stack_a, t_list **stack_b, t_global *global, char *option);
+void    moves_depending_on_size(t_list **stack_a, t_list **stack_b, t_global *global, int n_chunks);
 //ERROR FUCTIONS
 int		check_is_not_empty(char *string);
 int		check_order(t_list **stack);

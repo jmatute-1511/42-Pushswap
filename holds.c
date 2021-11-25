@@ -6,39 +6,28 @@
 /*   By: jmatute- <jmatute-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/21 15:52:00 by jmatute-          #+#    #+#             */
-/*   Updated: 2021/11/21 16:15:15 by jmatute-         ###   ########.fr       */
+/*   Updated: 2021/11/25 15:24:49 by jmatute-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pushswap.h"
 
-int hold_second(t_list **stack, int top_chunk, int first_hold)
+int hold_second(t_list **stack, int top_chunk)
 {
-	int		count;
-	int		cunt2;
-	t_list	*aux;
-	t_list	*s_hold;
+	int count;
+	int flag;
+	t_list *aux;
 
-    count = 0;
-	cunt2 = 0;
-    aux = (*stack);
-	while (aux->next || aux->next == NULL)
+
+	count = 1;
+	aux = (*stack);
+	while (aux)
 	{
-		if (aux && aux->content  < top_chunk)
-			s_hold = aux;
-		if (aux->next == NULL || aux == NULL)
-			break;
+		if (aux->content <= top_chunk)
+			count = 1;
+		else
+			count++;
 		aux = aux->next;
-		cunt2++;
-	}
-	while (s_hold)
-	{
-		count++;
-		if (s_hold->next == NULL)
-		{
-			break;
-		}
-		s_hold = s_hold->next;
 	}
 	return (count);
 }
@@ -50,15 +39,14 @@ int hold_first(t_list **stack,t_global *global, int top_chunk)
 
 	count = 0;
 	aux = (*stack);
-	if(aux)
+	if (aux->content <= top_chunk)
+			return(0);
+	while (aux)
 	{
-		while (aux->next)
-		{
-			if (aux->content <= top_chunk)
-				break;
-			count++;
-			aux = aux->next;
-		}
+		if (aux->content <= top_chunk)
+			break;
+		count++;
+		aux = aux->next;
 	}
 	return (count);
 }

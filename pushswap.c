@@ -6,7 +6,7 @@
 /*   By: jmatute- <jmatute-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/01 06:34:06 by jmatute-          #+#    #+#             */
-/*   Updated: 2021/11/21 16:53:31 by jmatute-         ###   ########.fr       */
+/*   Updated: 2021/11/25 23:24:40 by jmatute-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int main(int argc, char **argv)
 {
 	t_global global;
 	int size;
-
+	int hold_s;
 	global.stack_a = NULL;
 	global.stack_b = NULL;
 
@@ -34,17 +34,19 @@ int main(int argc, char **argv)
 	if (size <= 5)
 		moves_when_size_five(&global.stack_a, &global.stack_b, &global.end_a);
 	else if (size <= 100)
-		moves_depending_on_size(&global.stack_a,&global.stack_b,&global, "100");
-	printf ("\n SIZEEE %d\n", ft_lstsize(global.stack_b));
-	while(global.stack_b->next || global.stack_b->next == NULL)
+		moves_depending_on_size(&global.stack_a,&global.stack_b,&global,5);
+	else if (size <= 500)
+		moves_depending_on_size(&global.stack_a,&global.stack_b,&global, 11);
+	//printf ("\n SIZEEE %d\n", ft_lstsize(global.stack_b));
+	/*while(global.stack_b->next || global.stack_b->next == NULL)
 	{
 		printf(" %d",global.stack_b->content);
 		if(global.stack_b->next == NULL)
 			break;
 		global.stack_b = global.stack_b->next;
 	}
-	printf("\n\n\n");
-	/*//printf(" \n SIZEEE B %d\n", ft_lstsize(global.stack_b));
+	printf("\n\n\n");*/
+	//printf(" \n SIZEEE B %d\n", ft_lstsize(global.stack_b));
 	while(global.stack_a->next || global.stack_a->next == NULL)
 	{
 		printf(" %d",global.stack_a->content);
@@ -52,6 +54,6 @@ int main(int argc, char **argv)
 			break;
 		global.stack_a = global.stack_a->next;
 	}
-	//printf("\n%p ",global.end_a->next);*/
+	//printf("\n%p ",global.end_a->next);
 	return (0);
 }
