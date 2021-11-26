@@ -6,7 +6,7 @@
 /*   By: jmatute- <jmatute-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/18 12:42:36 by marvin            #+#    #+#             */
-/*   Updated: 2021/11/25 23:25:51 by jmatute-         ###   ########.fr       */
+/*   Updated: 2021/11/26 16:05:36 by jmatute-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,11 @@ int	moves_to_dump(t_list **stack, int big_n)
 
 	aux =(*stack);
 	count = 0;
-	if (aux->content == big_n)
+	if (aux->content == big_n /*|| aux->content == big_n - 1*/)
 			return(0);
 	while (aux)
 	{
-		if(aux->content == big_n || aux->content == big_n - 1)
+		if(aux->content == big_n /*|| aux->content == big_n - 1*/)
 			break;
 		count++;
 		aux = aux->next;
@@ -35,7 +35,6 @@ void dump_on_stack(t_list **stack_a, t_list **stack_b)
 	int big_n;
 	int moves;
 	int size;
-
 
 	while ((*stack_b)->next)
 	{
@@ -51,6 +50,7 @@ void dump_on_stack(t_list **stack_a, t_list **stack_b)
 			moves = size - moves;
 			rule_nreverse(stack_b, "reverse_b", moves);
 		}
+	//	if (ft_lstsize(*stack_a) )
 		rules_push_to(stack_a, stack_b,"push_to_a");
 	}
 	rules_push_to(stack_a, stack_b,"push_to_a");
@@ -69,7 +69,6 @@ void move_chunck(t_list **stack_a, t_global *global, int topchunk)
 
 	first_hold = hold_first(stack_a,global,topchunk);
 	second_hold = hold_second(stack_a,topchunk);
-//	printf("\n F: %d S: %d\n",first_hold,second_hold);
 	if (first_hold < second_hold)
 		make_moves(stack_a, "first", first_hold);
 	else if(first_hold > second_hold)
@@ -103,19 +102,21 @@ void    moves_depending_on_size(t_list **stack_a, t_list **stack_b, t_global *gl
 	top_chunk = final_chunk;
     while ((*stack_a) != NULL)
 	{
-		if (chunk == n_chunks)
+		if (chunk == n_chunks / 3)
 			top_chunk = (final_chunk * chunk) + (global->distance % n_chunks);
 		else
 			top_chunk = final_chunk * chunk;
-	//	printf("\nCHUNK %d\n",top_chunk);
 		while (moves < top_chunk && (*stack_a)->next)
 		{
 			if (ft_lstsize((*stack_b)) < top_chunk)
 			{
-				move_chunck(stack_a,global,top_chunk);
+				move_chunck(stack_a, global,top_chunk);
 				rules_push_to(stack_a,stack_b,"push_to_b");
-				if (moves > 1)
-					part_chunk(stack_b,top_chunk);
+			}
+			if (ft_lstsize(*stack_b) > 1)
+			{
+				if ((*stack_b)->content  < (*stack_b)->next->content)
+					rule_swap_stack(stack_b,"swap_b");
 			}
 			moves++;
 		}

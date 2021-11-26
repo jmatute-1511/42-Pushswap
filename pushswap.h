@@ -49,7 +49,7 @@ void	make_moves(t_list **stack_a, char *option, int hold);
 void	move_chunck(t_list **stack_a, t_global *global, int top_chunk);
 int		moves_to_dump(t_list **stack, int big_n);
 void	dump_on_stack(t_list **stack_a, t_list **stack_b);
-void    moves_depending_on_size(t_list **stack_a, t_list **stack_b, t_global *global, int n_chunks);
+void    moves_depending_on_size(t_list **stack_a, t_list **stack_b, t_global *global, int size);
 //ERROR FUCTIONS
 int		check_is_not_empty(char *string);
 int		check_order(t_list **stack);

@@ -6,7 +6,7 @@
 #    By: jmatute- <jmatute-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/22 12:21:57 by jmatute-          #+#    #+#              #
-#    Updated: 2021/11/25 19:44:21 by jmatute-         ###   ########.fr        #
+#    Updated: 2021/11/26 12:46:18 by jmatute-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ LIBFT_DIR	= libft/
 
 OBJS	= ${SRCS:.c=.o}
 
-NAME	= pushswap
+NAME	= push_swap
 
 CC		= gcc
 RM		= rm -f

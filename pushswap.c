@@ -6,7 +6,7 @@
 /*   By: jmatute- <jmatute-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/01 06:34:06 by jmatute-          #+#    #+#             */
-/*   Updated: 2021/11/25 23:24:40 by jmatute-         ###   ########.fr       */
+/*   Updated: 2021/11/26 15:54:17 by jmatute-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int main(int argc, char **argv)
 	if (size <= 5)
 		moves_when_size_five(&global.stack_a, &global.stack_b, &global.end_a);
 	else if (size <= 100)
-		moves_depending_on_size(&global.stack_a,&global.stack_b,&global,5);
+		moves_depending_on_size(&global.stack_a,&global.stack_b,&global,7);
 	else if (size <= 500)
 		moves_depending_on_size(&global.stack_a,&global.stack_b,&global, 11);
 	//printf ("\n SIZEEE %d\n", ft_lstsize(global.stack_b));
