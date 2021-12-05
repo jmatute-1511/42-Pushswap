@@ -50,12 +50,12 @@ void    rules_push_to(t_list **stack_a, t_list **stack_b, char *option)
 	{
 		head = (*stack_b);
 		push_a(stack_a, stack_b, head);
-		write(1,"pa\n", 4);
+		write(1,"pa\n", 3);
 	}
 	else if (ft_strcmp(option, "push_to_b") == 0 && (*stack_a) != NULL)
 	{
 		head = (*stack_a);
 		push_b(stack_a, stack_b, head);
-		write(1,"pb\n", 4);
+		write(1,"pb\n", 3);
 	}
 }

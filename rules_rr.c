@@ -6,7 +6,7 @@
 /*   By: jmatute- <jmatute-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/01 13:59:59 by jmatute-          #+#    #+#             */
-/*   Updated: 2021/11/21 15:29:33 by jmatute-         ###   ########.fr       */
+/*   Updated: 2021/12/03 16:09:57 by jmatute-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,9 @@ void	rule_rotate_stack(t_list **stack,char *option)
 	ultimate->next = head;
 	head->next = NULL;
 	if (ft_strcmp(option, "rotate_a") == 0)
-		write(1, "ra\n", 4);
+		write(1, "ra\n", 3);
 	else if(ft_strcmp(option, "rotate_b") == 0)
-		write(1, "rb\n", 4);
+		write(1, "rb\n", 3);
 }
 void	rule_rotate_all(t_list **stack_a, t_list **stack_b)
 {

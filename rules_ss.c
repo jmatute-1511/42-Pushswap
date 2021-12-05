@@ -6,7 +6,7 @@
 /*   By: jmatute- <jmatute-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/01 06:00:42 by jmatute-          #+#    #+#             */
-/*   Updated: 2021/11/20 19:09:55 by jmatute-         ###   ########.fr       */
+/*   Updated: 2021/12/03 16:13:07 by jmatute-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,9 @@ void rule_swap_stack(t_list **stack, char *option)
 	second->next = first;
 	(*stack) = second;
 	if (ft_strcmp(option,"swap_a") == 0)
-		write(1,"sa\n",4);
+		write(1,"sa\n",3);
 	else if (ft_strcmp(option,"swap_b") == 0)
-		write(1,"sb\n",4);
+		write(1,"sb\n",3);
 }
 void	rules_swap(t_list **stack_a, t_list **stack_b)
 {

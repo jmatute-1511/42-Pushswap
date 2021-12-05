@@ -12,6 +12,29 @@
 
 #include "pushswap.h"
 
+int not_repite(t_list **stack)
+{
+	t_list *aux_next;
+	t_list *aux;
+
+	aux_next = (*stack)->next;
+	aux =(*stack);
+
+	while (aux)
+	{
+		while (aux_next)
+		{
+			if (aux->content == aux_next->content)
+				return (1);
+			aux_next = aux_next->next;
+		}
+		aux = aux->next;
+		if(aux_next != NULL)
+			aux_next = aux_next;
+	}
+	return  (0);
+}
+
 int	check_is_not_empty(char *string)
 {
 	int	i;
@@ -33,12 +56,10 @@ int	check_not_error(int argc, char **argv)
 
 	i = 0;
 	m = 1;
-	if (check_not_repite(argc,argv) == 1)
-		return (1);
-	if (argc == 2 && check_is_not_empty(argv[m]) == 0)
-		return (1);
 	while (m < argc)
 	{
+		if (check_is_not_empty(argv[m]) == 0)
+			return (1);
 		while (ft_isdigit(argv[m][i]) != 0 || argv[m][i] == ' ' || argv[m][i] == '-')
 		{
 			if (argv[m][i] == '-' && argv[m][i - 1] != ' ' && i != 0)
@@ -52,4 +73,3 @@ int	check_not_error(int argc, char **argv)
 	}
 	return (0);
 }
-

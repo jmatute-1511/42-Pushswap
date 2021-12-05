@@ -47,10 +47,13 @@ int check_order(t_list **stack)
     t_list *aux;
 
     aux = (*stack);
-    while (aux->next)
+    while (aux)
     {
-        if (aux->content > aux->next->content)
-            return (1);
+        if(aux->next)
+        {
+            if (aux->content > aux->next->content)
+                return (1);
+        }
         aux = aux->next;
     }
     return (0);

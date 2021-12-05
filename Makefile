@@ -6,11 +6,11 @@
 #    By: jmatute- <jmatute-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/22 12:21:57 by jmatute-          #+#    #+#              #
-#    Updated: 2021/11/26 12:46:18 by jmatute-         ###   ########.fr        #
+#    Updated: 2021/12/05 12:14:53 by jmatute-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRCS	=  fill_stack.c errors_args.c check_not_repite.c pushswap.c rules_ss.c rules_rr.c rules_rrr.c rules_push.c  moves_depending_on_size.c move_when_size_five.c size_chunks.c holds.c
+SRCS	=  fill_stack.c errors_args.c pushswap.c rules_ss.c rules_rr.c rules_rrr.c rules_push.c  moves_depending_on_size.c move_when_size_five.c size_chunks.c holds.c
 
 LIBFT_DIR	= libft/
 
