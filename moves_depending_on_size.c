@@ -6,7 +6,7 @@
 /*   By: jmatute- <jmatute-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/18 12:42:36 by marvin            #+#    #+#             */
-/*   Updated: 2021/12/05 12:40:49 by jmatute-         ###   ########.fr       */
+/*   Updated: 2021/12/08 17:15:30 by jmatute-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,27 +82,25 @@ void    moves_depending_on_size(t_list **stack_a, t_list **stack_b, t_global *gl
 {
     int chunk;
 	int top_chunk;
-	int moves;
 	int max_it;
+	int small;
 
     chunk = 1;
-	moves = 0;
+	small = 0;
 	global->small_n = small_number(stack_a);
 	global->big_n = bigger_number(stack_a);
 	global->distance = distance(global->small_n, global->big_n);
     while ((*stack_a) != NULL)
 	{
 		if (chunk == 4)
-			top_chunk = (((global->distance / n_chunks) * chunk)) + \
-			global->small_n + (global->distance % n_chunks);
+			top_chunk = (((global->distance / n_chunks) * chunk)) + global->small_n + (global->distance % n_chunks);
 		else
 			top_chunk = (((global->distance / n_chunks) * chunk)) + global->small_n;
-		while (global->small_n < top_chunk && (*stack_a)->next)
+		while (small < top_chunk && (*stack_a)->next)
 		{
 			move_chunck(stack_a, global,top_chunk);
 			rules_push_to(stack_a,stack_b,"push_to_b");
-			global->small_n = small_number(stack_a);
-			moves++;
+			small = small_number(stack_a);
 		}
 		if((*stack_a)->next == NULL)
 			rules_push_to(stack_a,stack_b,"push_to_b");

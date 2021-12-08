@@ -55,7 +55,8 @@ int		check_is_not_empty(char *string);
 int		check_order(t_list **stack);
 int		check_not_error(int argc, char **argv);
 int		check_not_repite(int argc,char **argv);
-int not_repite(t_list **stack);
+int		not_repite(t_list **stack);
+int		check_range(int argc, char **argv);
 //RULES SS
 void	rule_swap_stack(t_list **stack_a, char *option);
 void	rule_swap_all(t_list **stack_a, t_list **stack_b);

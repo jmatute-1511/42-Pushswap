@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_long_atoi.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jmatute- <jmatute-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/19 21:40:16 by jmatute-          #+#    #+#             */
-/*   Updated: 2021/12/08 14:03:30 by jmatute-         ###   ########.fr       */
+/*   Created: 2021/12/08 13:34:02 by jmatute-          #+#    #+#             */
+/*   Updated: 2021/12/08 13:51:49 by jmatute-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_atoi(const char *str)
+long	ft_long_atoi(const char *str)
 {
 	long	count;
 	long	save;
@@ -31,12 +31,8 @@ int	ft_atoi(const char *str)
 			neg = -1;
 		 (sign += 1) && (count += 1);
 	}
-	while (ft_isdigit(str[count]) && sign <= 1 && save <= 21474836479)
+	while (ft_isdigit(str[count]) && sign <= 1)
 		save = save * 10 + (str[count++] - 48);
 	save = save * neg;
-	if (save > 2147483647)
-		return (-1);
-	if (save < -2147483648)
-		return (0);
-	return ((int)save);
+	return (save);
 }

@@ -6,7 +6,7 @@
 /*   By: jmatute- <jmatute-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/16 17:03:57 by jmatute-          #+#    #+#             */
-/*   Updated: 2021/12/05 12:56:09 by jmatute-         ###   ########.fr       */
+/*   Updated: 2021/12/08 13:36:53 by jmatute-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ int		ft_isascii(int c);
 int		ft_isdigit(int c);
 int		ft_isprint(int c);
 int		ft_atoi(const char *str);
+long	ft_long_atoi(const char *str);
 int		ft_strcmp(const char *s1, const char *s2);
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
 int		ft_memcmp(const void *str1, const void *str2, size_t n);

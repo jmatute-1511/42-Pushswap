@@ -73,3 +73,31 @@ int	check_not_error(int argc, char **argv)
 	}
 	return (0);
 }
+
+int check_range(int argc, char **argv)
+{
+	char **matrix;
+	long number;
+	int i;
+	int m;
+
+	i = 1;
+	while (argv[i])
+	{
+		matrix = ft_split(argv[i], ' ');
+		m = 0;
+		while (matrix[m])
+		{
+			number = ft_long_atoi(matrix[m]);
+			if(number > 2147483647 || number < -2147483648)
+			{
+				free_matrix(matrix);
+				return (1);
+			}
+			m++;
+		}
+		free_matrix(matrix);
+		i++;
+	}
+	return (0);
+}
