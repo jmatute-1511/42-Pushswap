@@ -6,7 +6,7 @@
 #    By: jmatute- <jmatute-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/22 12:21:57 by jmatute-          #+#    #+#              #
-#    Updated: 2021/12/05 12:14:53 by jmatute-         ###   ########.fr        #
+#    Updated: 2021/12/11 18:39:50 by jmatute-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,7 +29,7 @@ CFLAGS	= -Wall -Wextra -Werror #-fsanitize=address
 ${NAME}:	${OBJS} pushswap.h Makefile
 			@make -sC ${LIBFT_DIR}
 			@cp ./libft/libft.a .
-			${CC}  libft.a ${OBJS} -o ${NAME}
+			${CC} ${CFLAGS} libft.a ${OBJS} -o ${NAME}
 
 all:		${NAME}
 

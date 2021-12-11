@@ -5,22 +5,21 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: jmatute- <jmatute-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/30 15:36:41 by jmatute-          #+#    #+#             */
-/*   Updated: 2021/10/30 15:36:41 by jmatute-         ###   ########.fr       */
+/*   Created: 2021/12/11 13:44:47 by jmatute-          #+#    #+#             */
+/*   Updated: 2021/12/11 13:44:47 by jmatute-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pushswap.h"
 
-int not_repite(t_list **stack)
+int	not_repite(t_list **stack)
 {
-	t_list *aux_next;
-	t_list *aux;
+	t_list	*aux_next;
+	t_list	*aux;
 
 	aux_next = (*stack)->next;
-	aux =(*stack);
-
-	while (aux)
+	aux = (*stack);
+	while (aux->next)
 	{
 		while (aux_next)
 		{
@@ -29,10 +28,9 @@ int not_repite(t_list **stack)
 			aux_next = aux_next->next;
 		}
 		aux = aux->next;
-		if(aux_next != NULL)
-			aux_next = aux_next;
+		aux_next = aux->next;
 	}
-	return  (0);
+	return (0);
 }
 
 int	check_is_not_empty(char *string)
@@ -49,37 +47,50 @@ int	check_is_not_empty(char *string)
 	return (0);
 }
 
-int	check_not_error(int argc, char **argv)
+int	aux_check_error(char **argv, int *i)
 {
-	int i;
-	int m;
-
-	i = 0;
-	m = 1;
-	while (m < argc)
+	while (ft_isdigit(argv[i[0]][i[1]]) != 0 || argv[i[0]][i[1]] == ' ' || \
+	argv[i[0]][i[1]] == '-' || argv[i[0]][i[1]] == '+')
 	{
-		if (check_is_not_empty(argv[m]) == 0)
+		if ((argv[i[0]][i[1]] == '-' || argv[i[0]][i[1]] == '+') && \
+		argv[i[0]][i[1] - 1] != ' ' && i[1] != 0)
 			return (1);
-		while (ft_isdigit(argv[m][i]) != 0 || argv[m][i] == ' ' || argv[m][i] == '-')
-		{
-			if (argv[m][i] == '-' && argv[m][i - 1] != ' ' && i != 0)
-				return (1);
-			i++;
-		}
-		if (ft_isdigit(argv[m][i]) == 0 && argv[m][i] != '\0')
+		if ((argv[i[0]][i[1]] == '-' || argv[i[0]][i[1]] == '+') && \
+		ft_isdigit(argv[i[0]][i[1] + 1]) == 0 && i[1] != 0)
 			return (1);
-		i = 0;
-		m++;
+		i[1]++;
 	}
 	return (0);
 }
 
-int check_range(int argc, char **argv)
+int	check_not_error(int argc, char **argv)
 {
-	char **matrix;
-	long number;
-	int i;
-	int m;
+	int	i[2];
+
+	i[1] = 0;
+	i[0] = 1;
+	if (argc == 1)
+		return (2);
+	while (i[0] < argc)
+	{
+		if (check_is_not_empty(argv[i[0]]) == 0)
+			return (1);
+		if (aux_check_error(argv, i) == 1)
+			return (1);
+		if (ft_isdigit(argv[i[0]][i[1]]) == 0 && argv[i[0]][i[1]] != '\0')
+			return (1);
+		i[1] = 0;
+		i[0]++;
+	}
+	return (0);
+}
+
+int	check_range(int argc, char **argv)
+{
+	char	**matrix;
+	long	number;
+	int		i;
+	int		m;
 
 	i = 1;
 	while (argv[i])
@@ -89,7 +100,7 @@ int check_range(int argc, char **argv)
 		while (matrix[m])
 		{
 			number = ft_long_atoi(matrix[m]);
-			if(number > 2147483647 || number < -2147483648)
+			if (number > 2147483647 || number < -2147483648)
 			{
 				free_matrix(matrix);
 				return (1);

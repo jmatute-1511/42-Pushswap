@@ -6,7 +6,7 @@
 /*   By: jmatute- <jmatute-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/16 17:03:57 by jmatute-          #+#    #+#             */
-/*   Updated: 2021/12/08 13:36:53 by jmatute-         ###   ########.fr       */
+/*   Updated: 2021/12/11 14:15:26 by jmatute-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ void	free_matrix(char **matrix);
 
 typedef struct s_list
 {
-	int		content;
+	int				content;
 	struct s_list	*next;
 }			t_list;
 

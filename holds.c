@@ -6,18 +6,17 @@
 /*   By: jmatute- <jmatute-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/21 15:52:00 by jmatute-          #+#    #+#             */
-/*   Updated: 2021/11/25 15:24:49 by jmatute-         ###   ########.fr       */
+/*   Updated: 2021/12/11 13:55:20 by jmatute-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pushswap.h"
 
-int hold_second(t_list **stack, int top_chunk)
+int	hold_second(t_list **stack, int top_chunk)
 {
-	int count;
-	int flag;
-	t_list *aux;
-
+	int		count;
+	int		flag;
+	t_list	*aux;
 
 	count = 1;
 	aux = (*stack);
@@ -32,7 +31,7 @@ int hold_second(t_list **stack, int top_chunk)
 	return (count);
 }
 
-int hold_first(t_list **stack,t_global *global, int top_chunk)
+int	hold_first(t_list **stack, t_global *global, int top_chunk)
 {
 	t_list	*aux;
 	int		count;
@@ -40,11 +39,11 @@ int hold_first(t_list **stack,t_global *global, int top_chunk)
 	count = 0;
 	aux = (*stack);
 	if (aux->content <= top_chunk)
-			return(0);
+		return (0);
 	while (aux)
 	{
 		if (aux->content <= top_chunk)
-			break;
+			break ;
 		count++;
 		aux = aux->next;
 	}
